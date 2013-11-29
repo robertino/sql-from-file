@@ -1,0 +1,3 @@
+class SQLFromFile
+  VERSION = "0.0.1"
+end
