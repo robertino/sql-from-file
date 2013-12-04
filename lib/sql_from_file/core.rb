@@ -17,7 +17,7 @@ class SQLFromFile
   def query(name=nil, vars = {})
     raise "No queries found" if @queries.size == 0
     raise "Specify which query" if @queries.size > 1 and name.nil?
-    raise "Unsupported characters in values: ['\";]" if vars.values.select{|v| v.class == String}.any?{|v| v =~ /[\'\"\;]/}
+    # raise "Unsupported characters in values: ['\";]" if vars.values.select{|v| v.class == String}.any?{|v| v =~ /[\'\"\;]/}
     query = @queries[name || :only]
     return query if vars.empty?
     vars.inject(query) {|a,kv| k,v=*kv; a = a.gsub("__" + k.to_s.upcase + "__", v.to_s)}
