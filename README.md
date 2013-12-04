@@ -6,18 +6,26 @@ Annoyed with keeping SQL code in the same file as your code? Lack of syntax colo
 
 sql-from-file to the rescue!
 
+## Usage
+
+Put this in your Gemfile
+
+    gem 'sql-from-file', :git => 'git@github.com:robertino/sql-from-file.git', :require => 'sql_from_file'
+
 ## Syntax
 
 ### Ruby
 
 Parse SQL file and get query by it's name (see: comment)
 
-    sf = SQLFromFile.new("filename.sql")
-    sf.query(:pl)
+    sqf = SQLFromFile.new("filename.sql")
+    sqf.query(:pl)
+
+    sqf.query # this works only if there is only one query in a file
 
 #### Replace variables
 
-    sf.query(:pl, {date: Date.today})
+    sqf.query(:pl, {date: Date.today})
 
 ### SQL file format
 
@@ -27,7 +35,9 @@ Name your query by providing a comment
 
 ### Comment format
 
--- ruby-sql-query: queryname
+    -- ruby-sql-query: query_name
+
+where query name is going to be the symbol used to get the query
 
 ### Multiple queries in one file
 
@@ -41,4 +51,4 @@ Should be defined as (2 underscores on each side):
 
 ## Other
 
-It's still quite dumb. Doesn't do any string validation. There is a plan to fix that.
+This gem is still quite dumb. It doesn't do any string validation. There is a plan to fix that.

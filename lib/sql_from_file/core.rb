@@ -4,7 +4,7 @@ class SQLFromFile
   def initialize(filename)
     queries = File.read(filename).split(QUERY_SEPARATOR).map{|q| q.strip}.select{|q| !q.empty?}
     if queries.size == 1
-      @queries[:only] = queries.first
+      @queries = {only: queries.first}
     else
       @queries = queries.inject({}) {|all,one| all[one.lines.first.strip.to_sym] = one.lines[1..-1].join; all}
     end
