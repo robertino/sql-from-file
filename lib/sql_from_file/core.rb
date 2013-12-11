@@ -2,10 +2,11 @@ class SQLFromFile
   QUERY_SEPARATOR = "-- ruby-sql-query:"
 
   def initialize(filename)
-    queries = File.read(filename).split(QUERY_SEPARATOR).map{|q| q.strip}.select{|q| !q.empty?}
+    queries = File.read(filename).split(QUERY_SEPARATOR).map{|q| q.strip}
     if queries.size == 1
       @queries = {only: queries.first}
     else
+      queries.reject!{|q| q.empty?}
       @queries = queries.inject({}) {|all,one| all[one.lines.first.strip.to_sym] = one.lines[1..-1].join; all}
     end
   end
