@@ -1,2 +1,2 @@
 -- ruby-sql-query: named_query
-SELECT content FROM the_only_query WHERE all_others='gone' and nothing='__ELSE__'
+SELECT content FROM the_only_query WHERE all_others='gone' AND nothing='__ELSE__'
