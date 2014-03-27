@@ -10,7 +10,7 @@ sql-from-file to the rescue!
 
 Put this in your Gemfile
 
-    gem 'sql-from-file', :git => 'git@github.com:robertino/sql-from-file.git', :require => 'sql_from_file'
+    gem 'sql-from-file', :git => 'git@github.com:robertino/sql-from-file.git'
 
 ## Syntax
 

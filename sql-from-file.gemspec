@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sql_from_file'
+require 'sql-from-file'
 
 Gem::Specification.new do |gem|
   gem.name          = "sql-from-file"
