@@ -1,0 +1,3 @@
+* 0.1.0
+  
+  - When including gem in Gemfile don't specify :require => 'sql_from_file' anymore
